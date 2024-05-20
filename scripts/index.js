@@ -34,13 +34,16 @@ function addTasktoDom(taskText, completed = false) {
     deleteBtn.addEventListener('click', deleteTask);
 
     li.appendChild(deleteBtn);
+
+    document.getElementById('task-list').appendChild(li);
 }
 
 function toggleTaskCompletion(e) {
-
+    e.target.classList.toggle('completed'); 
 }
 
 function deleteTask() {
-    
+    const li = e.target.parentElement;
+    li.remove();
 }
     
