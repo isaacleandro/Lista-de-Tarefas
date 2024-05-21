@@ -13,11 +13,12 @@ function addTask(e) {
         return;
     }
     else {
-
+        addTasktoDOM(taskText);
+        taskinput.value = '';
     }
 }
 
-function addTasktoDom(taskText, completed = false) {
+function addTasktoDOM(taskText, completed = false) {
     const li = document.createElement('li');
     li.textContent = taskText;
 
@@ -25,7 +26,7 @@ function addTasktoDom(taskText, completed = false) {
         li.classList.add('completed');
     }
 
-    li.addEventListener('click', toggleTaskCompletion); 
+    li.addEventListener('click', toggleTaskCompletion);
 
     const deleteBtn = document.createElement('button');
 
@@ -39,11 +40,11 @@ function addTasktoDom(taskText, completed = false) {
 }
 
 function toggleTaskCompletion(e) {
-    e.target.classList.toggle('completed'); 
+    e.target.classList.toggle('completed');
 }
 
-function deleteTask() {
+function deleteTask(e) {
     const li = e.target.parentElement;
     li.remove();
 }
-    
+
