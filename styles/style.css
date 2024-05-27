@@ -57,12 +57,19 @@ form {
 
 .completed {
     text-decoration: line-through;
-    color: var(--tertiary-color);
+    text-decoration-color: var(--tertiary-color);
+    text-decoration-thickness: 3px;
+    color: var(--secondary-color);
+}
+
+li.completed:hover {
+    text-decoration: none;
 }
 
 .delete {
-    margin-left: 10px;
-    padding: 5px;
+    margin-left: 5px;
+    width: 20px;
+    height: 20px;
     border-radius: 30px;
     border: none;
     color: var(--prymary-color);

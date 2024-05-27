@@ -3,7 +3,7 @@
 document.getElementById('task-form').addEventListener('submit', addTask);
 
 function removeAccentAndAppLyLowercase(text) {
-    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
 }
 function addTask(e) {
     e.preventDefault();
@@ -15,21 +15,19 @@ function addTask(e) {
     const allListItemsData = []
 
     allListItems.forEach((item) => {
-        const noSinal = removeAccentAndAppLyLowercase(item.textContent);
-
-        allListItemsData.push(item.textContent.toLowerCase());
+        allListItemsData.push(removeAccentAndAppLyLowercase(item.textContent));
     })
 
     if (taskText === '') {
         alert('insira uma tarefa.');
         return;
-    } else if (allListItemsData.includes(removeAccentAndAppLyLowercase(`${taskText}x`))) {
+    } else if (allListItemsData.includes (removeAccentAndAppLyLowercase(`${taskText}x`))) {
         alert('tarefa ja adicionada');
         taskinput.value = '';
         return;
     }
     else {
-        addTasktoDOM(taskText);
+        addTasktoDOM(taskText.toUpperCase(), false);
         taskinput.value = '';
     }
 }
