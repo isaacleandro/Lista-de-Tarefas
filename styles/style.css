@@ -31,14 +31,13 @@ body {
     gap: 1rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
     color: var(--secondary-color);
 }
 
 .input {
     padding: 5px;
     border-radius: 30px;
-    border: 2px solid var(--secondary-color);
+    border: 1px solid var(--secondary-color);
     background-color: transparent;
     color: var(--secondary-color);
     font-weight: 600;
@@ -55,4 +54,25 @@ body {
 form {
     display: flex;
     gap: 1rem;
+}
+
+.completed {
+    text-decoration: line-through;
+    color: var(--tertiary-color);
+}
+
+.delete {
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 30px;
+    border: none;
+    color: var(--prymary-color);
+    font-weight: 600;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }

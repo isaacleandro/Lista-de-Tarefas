@@ -8,8 +8,19 @@ function addTask(e) {
     const taskinput = document.getElementById('task-input');
     const taskText = taskinput.value.trim();
 
+    const allListItems = document.querySelectorAll('li');
+    const allListItemsData = []
+
+    allListItems.forEach((item) => {
+        allListItemsData.push(item.textContent.toLowerCase());
+    })
+
     if (taskText === '') {
         alert('insira uma tarefa.');
+        return;
+    } else if (allListItemsData.includes(`${taskText}x`.toLowerCase())) {
+        alert('tarefa ja adicionada');
+        taskinput.value = '';
         return;
     }
     else {
@@ -29,8 +40,8 @@ function addTasktoDOM(taskText, completed = false) {
     li.addEventListener('click', toggleTaskCompletion);
 
     const deleteBtn = document.createElement('button');
-
-    deleteBtn.textContent = 'X';
+    
+    deleteBtn.textContent = 'x';
     deleteBtn.classList.add('delete');
     deleteBtn.addEventListener('click', deleteTask);
 
